@@ -41,130 +41,76 @@
         {
         var atpos = input[i].indexOf("@");
         var dotpos = inputs[i].lastIndexOf(".");
-        if(atpos <h1 || dotpos<atpos+2 || dotpos
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        )
+        if(atpos <1 || dotpos<atpos+2 || dotpos+2>= input[i].length)
+            document.getElementById('errEmail').innerHTML = "<span style = 'color:red'>Enter a valid email address!</span>";
+        else document.getElementById(div).innerHTML = "OK!";
         }
+        else if(i==5)
+        {
+        var first = document.getElementId('password').value;
+        var second = document.getElementById('confirm').value;
+        if (second != first)
+        document.getElementById('errConfirm').innerHTML = "<span style ='color:red'>Your passwoed dont match!</span>";
+        else
+        document.getElementById(div).innerHTML = "OK!";
+        }
+        else
+        document.getElementById(div).innerHTML = "OK!";
         }
 
         }
+
+        function finalValidate()
+        {
+        var count = 0;
+        for(i=0;i<6;i++)
+        {
+            var div = divs[i];
+        if (document.getElementById(div).innerHTML =="OK!")
+        count = count +1;
+        }
+        if(count ==6)
+            document.getElementById("errFinal").innerHTML = "All the data you enetered is correct!!!";
+        }
+        </script>
         
 </head>
 <body>
-    <div>Content goes here.</div>
+    <table id="table1">
+        <tr>
+            <td>First Name:</td>
+            <td><input type="text" id="first" onkeyup="validate();" /></td>
+            <td><div id="errFirst"></div></td>
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <td><input type="text" id="last" onkeyup="validate();" /></td>
+            <td><div id="errlast"></div></td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><input type="text" id="email" onkeyup="validate();" /></td>
+            <td><div id="errEmail"></div></td>
+        </tr>
+        <tr>
+            <td>User Id:</td>
+            <td><input type="text" id="uid" onkeyup="validate();" /></td>
+            <td><div id="errUid"></div></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" id="password" onkeyup="validate();" /></td>
+            <td><div id="errPassword"></div></td>
+        </tr>
+        <tr>
+            <td>Confirm Password:</td>
+            <td><input type="Password" id="Confirm" onkeyup="validate();" /></td>
+            <td><div id="errConfirm"></div></td>
+        </tr>
+        <tr>
+            <td><input type="button" id="create" value="Create" onclick="validate(); finalValidate();" /></td>
+            <td><div id="errFinal"></div></td> 
+        </tr>
+        </table>
 </body>
 </html>
